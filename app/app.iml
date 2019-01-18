@@ -206,9 +206,7 @@
     <orderEntry type="library" name="Gradle: com.google.guava:guava-jdk5:17.0@jar" level="project" />
     <orderEntry type="library" name="Gradle: com.android.support:swiperefreshlayout:28.0.0@aar" level="project" />
     <orderEntry type="library" name="Gradle: com.android.support:support-media-compat:28.0.0@aar" level="project" />
-    <orderEntry type="module" module-name="jokes" />
-    <orderEntry type="module" module-name="displayjokes" />
-    <orderEntry type="module" module-name="jokes" />
-    <orderEntry type="module" module-name="displayjokes" />
+    <orderEntry type="module" module-name="Displayjokes" />
+    <orderEntry type="module" module-name="Jokes" />
   </component>
 </module>
