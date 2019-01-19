@@ -6,9 +6,11 @@ import com.google.api.server.spi.config.ApiNamespace;
 
 import javax.inject.Named;
 
+import xyz.godi.jokes.Jokes;
+
 /** An endpoint class we are exposing */
 @Api(
-        name = "myApi",
+        name = "jokeApi",
         version = "v1",
         namespace = @ApiNamespace(
                 ownerDomain = "backend.builditbigger.gradle.udacity.com",
@@ -16,14 +18,14 @@ import javax.inject.Named;
                 packagePath = ""
         )
 )
-public class MyEndpoint {
+public class JokeEndpoint {
 
-    /** A simple endpoint method that takes a name and says Hi back */
-    @ApiMethod(name = "sayHi")
-    public MyBean sayHi(@Named("name") String name) {
+    /** A simple endpoint method that pull a joke and send it back */
+    @ApiMethod(name = "tellJoke")
+    public MyBean getJoke() {
         MyBean response = new MyBean();
-        response.setData("Hi, " + name);
-
+        // get jokes from Joke library
+        response.setData(Jokes.provideJokes());
         return response;
     }
 

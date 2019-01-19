@@ -43,15 +43,11 @@ public class MainActivityFragment extends Fragment {
         // tell joke button
         tellJokeBtn = root.findViewById(R.id.telljokeBtn);
 
-        tellJokeBtn.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Intent intent = new Intent(getContext(), DisplayJokesActivity.class);
-                intent.putExtra(DisplayJokesActivity.JOKE_KEY, tellJoke());
-                startActivity(intent);
-            }
+        tellJokeBtn.setOnClickListener(v -> {
+            Intent intent = new Intent(getContext(), DisplayJokesActivity.class);
+            intent.putExtra(DisplayJokesActivity.JOKE_KEY, tellJoke());
+            startActivity(intent);
         });
-
         return root;
     }
 
