@@ -22,10 +22,33 @@ android {
         testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
     }
 
+    flavorDimensions "jokesapp"
+    productFlavors {
+        free {
+            applicationId "com.udacity.gradle.builditbigger.free"
+            versionNameSuffix "-free"
+            dimension "jokesapp"
+        }
+        paid {
+            applicationId "com.udacity.gradle.builditbigger.paid"
+            versionNameSuffix "-paid"
+            dimension "jokesapp"
+        }
+    }
+
     buildTypes {
         release {
             minifyEnabled false
             proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
+        }
+    }
+
+    sourceSets {
+        paid {
+            manifest.srcFile 'src/paid/AndroidManifest.xml'
+        }
+        free {
+            manifest.srcFile 'src/free/AndroidManifest.xml'
         }
     }
 
@@ -42,12 +65,12 @@ dependencies {
     implementation fileTree(include: ['*.jar'], dir: 'libs')
     endpointsServer project(path: ':backend', configuration: 'endpoints')
     implementation 'com.android.support:appcompat-v7:28.0.0'
-    implementation 'com.google.android.gms:play-services-ads:11.8.0'
+    freeImplementation 'com.google.android.gms:play-services-ads:11.8.0'
     implementation 'com.google.api-client:google-api-client:1.23.0'
     implementation 'com.google.http-client:google-http-client-android:1.23.0'
     implementation 'com.google.code.findbugs:jsr305:3.0.1'
-    implementation project(':Jokes')
-    implementation project(':Displayjokes')
+    implementation project(':jokes')
+    implementation project(':displayjokes')
     androidTestImplementation('com.android.support.test.espresso:espresso-core:2.2.2', {
         exclude group: 'com.android.support', module: 'support-annotations'
     })
