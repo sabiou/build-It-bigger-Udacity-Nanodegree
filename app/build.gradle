@@ -43,6 +43,12 @@ android {
         }
     }
 
+    sourceSets {
+        free {
+            manifest.srcFile 'src/free/AndroidManifest.xml'
+        }
+    }
+
     dataBinding {
         enabled = true
     }
@@ -59,7 +65,7 @@ dependencies {
     implementation 'com.android.support:appcompat-v7:28.0.0'
 
     // Google ads dependency, only for the free version of the app
-    freeImplementation 'com.google.android.gms:play-services-ads:17.1.2'
+    freeImplementation 'com.google.android.gms:play-services-ads:16.0.0'
 
     implementation 'com.google.api-client:google-api-client:1.23.0'
     implementation 'com.google.http-client:google-http-client-android:1.23.0'
