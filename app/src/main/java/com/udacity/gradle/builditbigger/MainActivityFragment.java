@@ -2,6 +2,7 @@ package com.udacity.gradle.builditbigger;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -11,6 +12,8 @@ import android.widget.Toast;
 
 import com.google.android.gms.ads.AdRequest;
 import com.google.android.gms.ads.AdView;
+import com.udacity.gradle.builditbigger.api.JokeAsyncTask;
+import com.udacity.gradle.builditbigger.api.OnRetrieveJokeListener;
 
 import xyz.godi.displayjokes.DisplayJokesActivity;
 import xyz.godi.jokes.Jokes;
@@ -43,15 +46,29 @@ public class MainActivityFragment extends Fragment {
         // tell joke button
         tellJokeBtn = root.findViewById(R.id.telljokeBtn);
 
-        tellJokeBtn.setOnClickListener(v -> {
-            Intent intent = new Intent(getContext(), DisplayJokesActivity.class);
-            intent.putExtra(DisplayJokesActivity.JOKE_KEY, tellJoke());
-            startActivity(intent);
-        });
+        tellJokeBtn.setOnClickListener(v -> tellJoke());
         return root;
     }
 
-    private String tellJoke() {
-        return Jokes.provideJokes();
+    private void tellJoke() {
+        JokeAsyncTask.getInstance(new OnRetrieveJokeListener() {
+            @Override
+            public void onRetrieveStarted() {
+                // do something
+            }
+
+            @Override
+            public void onRetrieveFinished(@Nullable String result) {
+                // pass result to startJokeActivvity()
+                startJokeActivvity(result);
+            }
+        });
+    }
+
+    // launch DisplayJokesActivity from android Joke library
+    private void startJokeActivvity(String joke) {
+        Intent intent = new Intent(getActivity(), DisplayJokesActivity.class);
+        intent.putExtra(DisplayJokesActivity.JOKE_KEY, joke);
+        startActivity(intent);
     }
 }
