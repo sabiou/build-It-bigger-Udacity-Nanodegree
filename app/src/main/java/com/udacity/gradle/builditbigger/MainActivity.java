@@ -1,9 +1,17 @@
 package com.udacity.gradle.builditbigger;
 
+import android.content.Intent;
 import android.os.Bundle;
+import android.support.annotation.Nullable;
 import android.support.v7.app.AppCompatActivity;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.widget.Button;
+
+import com.udacity.gradle.builditbigger.api.JokeAsyncTask;
+import com.udacity.gradle.builditbigger.api.OnRetrieveJokeListener;
+
+import xyz.godi.displayjokes.DisplayJokesActivity;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -11,8 +19,11 @@ public class MainActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-    }
+        Button tellJokeButton = findViewById(R.id.telljokeBtn);
 
+        // tell joke click listener
+        tellJokeButton.setOnClickListener(v -> tellJoke());
+    }
 
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
@@ -34,5 +45,31 @@ public class MainActivity extends AppCompatActivity {
         }
 
         return super.onOptionsItemSelected(item);
+    }
+
+    /*
+    Retrieve joke string from AsyncTask and open activity
+    in android library to display jokes
+     */
+    private void tellJoke() {
+        JokeAsyncTask.getInstance(new OnRetrieveJokeListener() {
+            @Override
+            public void onRetrieveStarted() {
+                // do something
+            }
+
+            @Override
+            public void onRetrieveFinished(@Nullable String result) {
+                // pass result to startJokeActivvity()
+                startJokeActivvity(result);
+            }
+        });
+    }
+
+    // launch DisplayJokesActivity from android Joke library
+    private void startJokeActivvity(String joke) {
+        Intent intent = new Intent(this, DisplayJokesActivity.class);
+        intent.putExtra(DisplayJokesActivity.JOKE_KEY, joke);
+        startActivity(intent);
     }
 }
