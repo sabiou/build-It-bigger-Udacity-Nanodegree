@@ -3,20 +3,25 @@ package com.udacity.gradle.builditbigger;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
+import android.support.v4.widget.ContentLoadingProgressBar;
 import android.support.v7.app.AppCompatActivity;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.view.View;
 import android.widget.Button;
 
 import xyz.godi.displayjokes.DisplayJokesActivity;
 
 public class MainActivity extends AppCompatActivity {
 
+    private ContentLoadingProgressBar mProgressBar;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
         Button tellJokeButton = findViewById(R.id.telljokeBtn);
+        mProgressBar = findViewById(R.id.progress_bar);
 
         // tell joke click listener
         tellJokeButton.setOnClickListener(v -> tellJoke());
@@ -52,12 +57,14 @@ public class MainActivity extends AppCompatActivity {
         JokeAsyncTask.getInstance(new OnRetrieveJokeListener() {
             @Override
             public void onRetrieveStarted() {
-                // do something
+                // Show loading indicator while loading jokes
+                mProgressBar.setVisibility(View.VISIBLE);
             }
 
             @Override
             public void onRetrieveFinished(@Nullable String result) {
-                // pass result to startJokeActivvity()
+                // pass result to startJokeActivvity() and hide loading indicator
+                mProgressBar.setVisibility(View.GONE);
                 startJokeActivvity(result);
             }
         });

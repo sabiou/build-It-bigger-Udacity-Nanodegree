@@ -2,6 +2,6 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/fragment"
     android:layout_width="match_parent"
-    android:name="com.udacity.gradle.builditbigger.free.MainActivityFragment"
+    android:name="com.udacity.gradle.builditbigger.paid.MainActivityFragment"
     android:layout_height="match_parent"
     tools:layout="@layout/fragment_main_activity"/>
