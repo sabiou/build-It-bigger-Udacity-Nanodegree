@@ -2,6 +2,9 @@ package com.udacity.gradle.builditbigger.api;
 
 import android.support.annotation.Nullable;
 
+import com.udacity.gradle.builditbigger.JokeAsyncTask;
+import com.udacity.gradle.builditbigger.OnRetrieveJokeListener;
+
 import org.junit.Test;
 import java.util.concurrent.CountDownLatch;
 import java.util.concurrent.TimeUnit;

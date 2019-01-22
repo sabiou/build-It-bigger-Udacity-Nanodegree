@@ -15,7 +15,6 @@ import com.udacity.gradle.builditbigger.MainActivity;
 import com.udacity.gradle.builditbigger.R;
 import com.udacity.gradle.builditbigger.databinding.FragmentMainActivityBinding;
 
-
 public class MainActivityFragment extends Fragment {
 
     public MainActivityFragment() {}

@@ -8,9 +8,6 @@ import android.view.Menu;
 import android.view.MenuItem;
 import android.widget.Button;
 
-import com.udacity.gradle.builditbigger.api.JokeAsyncTask;
-import com.udacity.gradle.builditbigger.api.OnRetrieveJokeListener;
-
 import xyz.godi.displayjokes.DisplayJokesActivity;
 
 public class MainActivity extends AppCompatActivity {

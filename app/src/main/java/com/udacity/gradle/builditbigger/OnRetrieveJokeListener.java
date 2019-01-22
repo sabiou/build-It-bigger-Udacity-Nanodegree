@@ -1,4 +1,4 @@
-package com.udacity.gradle.builditbigger.api;
+package com.udacity.gradle.builditbigger;
 
 import android.support.annotation.Nullable;
 import android.support.annotation.UiThread;
