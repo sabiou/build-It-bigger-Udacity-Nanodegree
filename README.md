@@ -1,5 +1,7 @@
 # Gradle for Android and Java Final Project
 
+[![Codacy Badge](https://api.codacy.com/project/badge/Grade/17e24dded7ec47aea86aab7f64972bd0)](https://app.codacy.com/app/godixyz/BuildItBigger?utm_source=github.com&utm_medium=referral&utm_content=godixyz/BuildItBigger&utm_campaign=Badge_Grade_Settings)
+
 In this project, you will create an app with multiple flavors that uses
 multiple libraries and Google Cloud Endpoints. The finished app will consist
 of four modules. A Java library that provides jokes, a Google Cloud Endpoints
