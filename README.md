@@ -1,3 +1,5 @@
+[![Codacy Badge](https://api.codacy.com/project/badge/Grade/5bae1d5eb4a84b589352ce0e56776d9a)](https://www.codacy.com/app/godixyz/BuildItBigger?utm_source=github.com&amp;utm_medium=referral&amp;utm_content=godixyz/BuildItBigger&amp;utm_campaign=Badge_Grade)
+
 # Gradle for Android and Java Final Project
 
 In this project, you will create an app with multiple flavors that uses
