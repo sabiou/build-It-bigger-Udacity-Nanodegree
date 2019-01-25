@@ -1,5 +1,3 @@
-[![Codacy Badge](https://api.codacy.com/project/badge/Grade/5bae1d5eb4a84b589352ce0e56776d9a)](https://www.codacy.com/app/godixyz/BuildItBigger?utm_source=github.com&amp;utm_medium=referral&amp;utm_content=godixyz/BuildItBigger&amp;utm_campaign=Badge_Grade)
-
 # Gradle for Android and Java Final Project
 
 [![Codacy Badge](https://api.codacy.com/project/badge/Grade/17e24dded7ec47aea86aab7f64972bd0)](https://app.codacy.com/app/godixyz/BuildItBigger?utm_source=github.com&utm_medium=referral&utm_content=godixyz/BuildItBigger&utm_campaign=Badge_Grade_Settings)
